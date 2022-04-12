@@ -1,0 +1,46 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "ts-node src/main.ts",
+    "start:prod": "tsc && node dist/main.js",
+    "start:dev": "tsnd --respawn --transpile-only src/main.ts",
+    "lint": "prettier .",
+    "lint:check": "prettier --check .",
+    "reset-db": "node setup-db.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/better-sqlite3": "^7.4.0",
+    "@types/lru-cache": "^5.1.1",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.1",
+    "simple-git-hooks": "^2.6.1",
+    "ts-node": "^10.2.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "better-sqlite3": "^7.4.4",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.23.1",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "lru-cache": "^6.0.0",
+    "ts-dedent": "^2.2.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": "prettier --write"
+  }
+}
